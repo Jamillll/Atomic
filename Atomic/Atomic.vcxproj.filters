@@ -15,8 +15,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Program.cpp">
+    <ClCompile Include="Source\Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dependancies\GLEW\doc\advanced.html" />
+    <None Include="Dependancies\GLEW\doc\basic.html" />
+    <None Include="Dependancies\GLEW\doc\build.html" />
+    <None Include="Dependancies\GLEW\doc\credits.html" />
+    <None Include="Dependancies\GLEW\doc\glew.html" />
+    <None Include="Dependancies\GLEW\doc\glxew.html" />
+    <None Include="Dependancies\GLEW\doc\index.html" />
+    <None Include="Dependancies\GLEW\doc\install.html" />
+    <None Include="Dependancies\GLEW\doc\log.html" />
+    <None Include="Dependancies\GLEW\doc\wglew.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dependancies\GLEW\include\GL\eglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependancies\GLEW\include\GL\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependancies\GLEW\include\GL\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependancies\GLEW\include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
