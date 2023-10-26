@@ -1,44 +1,23 @@
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
+#include "Rendering/Renderer.h"
+#include "Logic/Grid.h"
 #include <iostream>
 
 int main(void)
 {
-    GLFWwindow* window;
+    Grid grid;
 
-    /* Initialize the library */
-    if (!glfwInit()) return -1;
+    Renderer renderer;
+    if (!renderer.success) 
+        return renderer.Terminate();
 
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
+    renderer.SetGrid(grid.cellArray, sizeof(Cell) * grid.cellArrayCount);
+
+    while (!glfwWindowShouldClose(renderer.window))
     {
-        glfwTerminate();
-        return -1;
+        
+
+        renderer.DrawCall();
     }
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-
-    if (glewInit() != GLEW_OK)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
-
-        /* Poll for and process events */
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
-    return 0;
 }

@@ -18,6 +18,15 @@
     <ClCompile Include="Source\Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Rendering\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\Shader.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependancies\GLEW\doc\advanced.html" />
@@ -30,6 +39,8 @@
     <None Include="Dependancies\GLEW\doc\install.html" />
     <None Include="Dependancies\GLEW\doc\log.html" />
     <None Include="Dependancies\GLEW\doc\wglew.html" />
+    <None Include="Source\Rendering\Shaders\Vertex.shader" />
+    <None Include="Source\Rendering\Shaders\Fragment.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependancies\GLEW\include\GL\eglew.h">
@@ -42,6 +53,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dependancies\GLEW\include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\VertexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\DataTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

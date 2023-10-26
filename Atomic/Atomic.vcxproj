@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Logic\Grid.cpp" />
     <ClCompile Include="Source\Program.cpp" />
+    <ClCompile Include="Source\Rendering\Renderer.cpp" />
+    <ClCompile Include="Source\Rendering\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependancies\GLEW\doc\advanced.html" />
@@ -32,12 +35,18 @@
     <None Include="Dependancies\GLEW\doc\install.html" />
     <None Include="Dependancies\GLEW\doc\log.html" />
     <None Include="Dependancies\GLEW\doc\wglew.html" />
+    <None Include="Source\Rendering\Shaders\Fragment.shader" />
+    <None Include="Source\Rendering\Shaders\Vertex.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependancies\GLEW\include\GL\eglew.h" />
     <ClInclude Include="Dependancies\GLEW\include\GL\glew.h" />
     <ClInclude Include="Dependancies\GLEW\include\GL\glxew.h" />
     <ClInclude Include="Dependancies\GLEW\include\GL\wglew.h" />
+    <ClInclude Include="Source\Logic\Grid.h" />
+    <ClInclude Include="Source\Utilities\DataTypes.h" />
+    <ClInclude Include="Source\Rendering\Renderer.h" />
+    <ClInclude Include="Source\Rendering\VertexBuffer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
