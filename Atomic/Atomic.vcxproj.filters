@@ -67,5 +67,8 @@
     <ClInclude Include="Source\Logic\Grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Logic\SimulationHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

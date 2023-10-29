@@ -16,7 +16,7 @@ public:
 
     Renderer();
 
-    void SetGrid(void* data, unsigned int count);
+    void SetGrid(void* data, unsigned int size);
 
     void DrawCall();
 

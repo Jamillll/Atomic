@@ -6,10 +6,10 @@ Grid::Grid()
     gapSize = cellSize / 10;
 
     float currentY = 1.0f - gapSize;
-    for (int y = 1; y != axisLength; y++)
+    for (int y = 0; y < axisLength; y++)
     {
         float currentX = -1.0f + gapSize;
-        for (int x = 1; x != axisLength; x++)
+        for (int x = 0; x < axisLength; x++)
         {
             unsigned int index = (y * axisLength) + x;
 
@@ -33,9 +33,9 @@ Grid::Grid()
 
             for (int i = 0; i < 6; i++)
             {
-                cellArray[index].vertices[i].r = 1.0f;
-                cellArray[index].vertices[i].g = 1.0f;
-                cellArray[index].vertices[i].b = 1.0f;
+                cellArray[index].vertices[i].r = 0.0f;
+                cellArray[index].vertices[i].g = 0.0f;
+                cellArray[index].vertices[i].b = 0.0f;
             }
 
             currentX += cellSize + gapSize;
@@ -47,18 +47,8 @@ Grid::Grid()
 
 void Grid::SetCoordColour(unsigned int x, unsigned int y, float colour)
 {
-    unsigned int index = (y * axisLength) + x;
+    unsigned int index = ((y - 1) * axisLength) + (x - 1);
 
-    for (int i = 0; i < 6; i++)
-    {
-        cellArray[index].vertices[i].r = colour;
-        cellArray[index].vertices[i].g = colour;
-        cellArray[index].vertices[i].b = colour;
-    }
-}
-
-void Grid::SetCoordColour(unsigned int index, float colour)
-{
     for (int i = 0; i < 6; i++)
     {
         cellArray[index].vertices[i].r = colour;
@@ -69,7 +59,7 @@ void Grid::SetCoordColour(unsigned int index, float colour)
 
 void Grid::SetCoordColour(unsigned int x, unsigned int y, float r, float g, float b)
 {
-    unsigned int index = (y * axisLength) + x;
+    unsigned int index = ((y - 1) * axisLength) + (x - 1);
 
     for (int i = 0; i < 6; i++)
     {
@@ -79,12 +69,9 @@ void Grid::SetCoordColour(unsigned int x, unsigned int y, float r, float g, floa
     }
 }
 
-void Grid::SetCoordColour(unsigned int index, float r, float g, float b)
+float Grid::GetCoordColour(unsigned int x, unsigned int y)
 {
-    for (int i = 0; i < 6; i++)
-    {
-        cellArray[index].vertices[i].r = r;
-        cellArray[index].vertices[i].g = g;
-        cellArray[index].vertices[i].b = b;
-    }
+    unsigned int index = ((y - 1) * axisLength) + (x - 1);
+
+    return cellArray[index].vertices[0].r;
 }
