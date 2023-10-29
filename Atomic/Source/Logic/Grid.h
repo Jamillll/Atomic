@@ -8,9 +8,9 @@ private:
 	float gapSize;
 
 public:
-	unsigned int axisLength = 40;
+	unsigned int axisLength = 1000;
 	unsigned int cellArrayCount = axisLength * axisLength;
-	Cell cellArray[1600];
+	Cell cellArray[1000000];
 
 public:
 	Grid();

@@ -4,7 +4,7 @@ Renderer::Renderer()
 {
     if (!glfwInit()) success = false;
 
-    window = glfwCreateWindow(800, 800, "Atomic", NULL, NULL);
+    window = glfwCreateWindow(windowWidth, windowHeight, "Atomic", NULL, NULL);
     if (!window) success = false;
 
     glfwMakeContextCurrent(window);

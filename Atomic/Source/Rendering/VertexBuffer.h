@@ -31,7 +31,7 @@ public:
 		glBufferData(GL_ARRAY_BUFFER, size, data, GL_DYNAMIC_DRAW);
 	}
 
-	void ChangeData(void* inputData) { data = inputData; glBufferData(GL_ARRAY_BUFFER, size, data, GL_DYNAMIC_DRAW); }
+	void ChangeData(void* inputData) { data = inputData; }
 
 	void Update() { glBufferData(GL_ARRAY_BUFFER, size, data, GL_DYNAMIC_DRAW); }
 };

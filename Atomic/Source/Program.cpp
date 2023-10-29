@@ -13,37 +13,33 @@ int main(void)
     if (!renderer.success) 
         return renderer.Terminate();
 
-    simulation.baseGrid.SetCoordColour(3, 2, 1.0f);
-    simulation.baseGrid.SetCoordColour(4, 3, 1.0f);
-    simulation.baseGrid.SetCoordColour(2, 4, 1.0f);
-    simulation.baseGrid.SetCoordColour(3, 4, 1.0f);
-    simulation.baseGrid.SetCoordColour(4, 4, 1.0f);
+    Vertex triangle[3] =
+    {
+        0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+        -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+        0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+    };
 
-    simulation.baseGrid.SetCoordColour(20, 20, 1.0f);
-    simulation.baseGrid.SetCoordColour(21, 20, 1.0f);
-    simulation.baseGrid.SetCoordColour(22, 20, 1.0f);
+    simulation.baseGrid->SetCoordColour(3, 2, 1.0f);
+    simulation.baseGrid->SetCoordColour(4, 3, 1.0f);
+    simulation.baseGrid->SetCoordColour(2, 4, 1.0f);
+    simulation.baseGrid->SetCoordColour(3, 4, 1.0f);
+    simulation.baseGrid->SetCoordColour(4, 4, 1.0f);
+                       
+    simulation.baseGrid->SetCoordColour(20, 20, 1.0f);
+    simulation.baseGrid->SetCoordColour(21, 20, 1.0f);
+    simulation.baseGrid->SetCoordColour(22, 20, 1.0f);
 
-    renderer.SetGrid(simulation.baseGrid.cellArray, sizeof(Cell) * simulation.baseGrid.cellArrayCount);
+    renderer.SetGrid(simulation.baseGrid->cellArray, sizeof(Cell) * simulation.baseGrid->cellArrayCount);
     renderer.DrawCall();
 
     bool paused = false;
     while (!glfwWindowShouldClose(renderer.window))
     {
-        if (glfwGetKey(renderer.window, GLFW_KEY_P) == GLFW_PRESS)
-        {
-            if (paused) paused = false;
-            else paused = true;
-        }
-
-        if (glfwGetMouseButton(renderer.window, GLFW_MOUSE_BUTTON_1))
-        {
-
-        }
-
-        if (!paused) simulation.Update();
+        simulation.Update();
 
         renderer.DrawCall();
 
-        Sleep(100);
+        Sleep(75);
     }
 }
