@@ -9,6 +9,5 @@ Current features implimented: <br>
 
 ToDo: <br>
   -Optimise the renderer to take in an index buffer to optimise how much space the verticies use <br>
-  -Fix the bug that limits the grid size <br>
   -Impliment the UI with IMGUI <br>
   -Impliment user interaction with the grid <br>
