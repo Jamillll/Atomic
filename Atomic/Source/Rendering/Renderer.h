@@ -10,8 +10,8 @@ private:
     VertexBuffer vertexBuffer;
     Shader shader;
 
-    int windowHeight = 1000;
-    int windowWidth = 1000;
+    int windowHeight = 900;
+    int windowWidth = 900;
 
 public:
     GLFWwindow* window;

@@ -45,6 +45,24 @@ Grid::Grid()
     }
 }
 
+void Grid::RandomGrid()
+{
+    std::random_device random;
+    std::uniform_int_distribution<int> dist(0, 1);
+
+    for (int i = 0; i < cellArrayCount; i++)
+    {
+        int colour = dist(random);
+
+        for (int j = 0; j < 6; j++)
+        {
+            cellArray[i].vertices[j].r = colour;
+            cellArray[i].vertices[j].g = colour;
+            cellArray[i].vertices[j].b = colour;
+        }
+    }
+}
+
 void Grid::SetCoordColour(unsigned int x, unsigned int y, float colour)
 {
     unsigned int index = ((y - 1) * axisLength) + (x - 1);

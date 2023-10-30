@@ -10,3 +10,9 @@ struct Cell
 {
 	Vertex vertices[6];
 };
+
+enum Neighbourhood
+{
+	Moore = 0,
+	Neumann = 1
+};

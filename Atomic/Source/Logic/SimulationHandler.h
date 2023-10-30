@@ -1,97 +1,162 @@
 #pragma once
 #include "Grid.h"
+#include "..\Utilities\DataTypes.h"
 #include <iostream>
+#include <string>
 
 class SimulationHandler
 {
 private:
 	const float alive = 1.0f;
 	const float dead = 0.0f;
+	int axisLength;
+
+	std::string birthRule = "B3";
+	std::string surviveRule = "S23";
+	Neighbourhood neighbourhoodRule = Moore;
 
 public:
-	Grid* baseGrid = new Grid();
-	Grid* updatedGrid = new Grid();
+	Grid* baseGrid = nullptr;
+	Grid* updatedGrid = nullptr;
 	int generation = 0;
 
-private:
-
-	void SwapGrids() { *baseGrid = *updatedGrid; }
-
-	float ReturnState(float state, unsigned int neighbours)
+public:
+	SimulationHandler()
 	{
-		if (state == alive)
+		baseGrid = new Grid();
+		updatedGrid = new Grid();
+		axisLength = baseGrid->axisLength;
+	}
+
+	void setRuleString(std::string ruleString)
+	{
+		birthRule = "";
+		surviveRule = "";
+
+		bool birthRuleFinished = false;
+		for (int i = 0; i < ruleString.size(); i++)
 		{
-			if (neighbours == 3)
+			if (ruleString[i] == '/' || ruleString[i] == '\\')
 			{
-				return alive;
+				birthRuleFinished = true;
+				continue;
 			}
-			else if (neighbours == 2)
+
+			if (!birthRuleFinished)
 			{
-				return alive;
+				birthRule += ruleString[i];
 			}
-			else
+			else 
 			{
-				return dead;
-			}
-		}
-		else
-		{
-			if (neighbours == 3)
-			{
-				return alive;
-			}
-			else
-			{
-				return dead;
+				surviveRule += ruleString[i];
 			}
 		}
 	}
 
-public:
+	void setRuleString(std::string ruleString, Neighbourhood newNeighbourhoodRule)
+	{
+		setRuleString(ruleString);
+		neighbourhoodRule = newNeighbourhoodRule;
+	}
 
 	void Update()
 	{
-
 		generation++;
 
-		int axisLength = baseGrid->axisLength;
 		for (int y = 1; y < axisLength + 1; y++)
 		{
 			for (int x = 1; x < axisLength + 1; x++)
 			{
-				int neighbours = 0;
+				int neighbours = CheckNeighbours(x, y);
+				float cellColour = ReturnState(baseGrid->GetCoordColour(x, y), neighbours);
 
-				for (int iy = -1; iy < 2; iy++)
-				{
-					for (int ix = -1; ix < 2; ix++)
-					{
-						if (ix == 0 && iy == 0)
-						{
-							continue;
-						}
-
-						if (y + iy <= 0 || y + iy > axisLength)
-						{
-							break;
-						}
-						else if (x + ix <= 0 || x + ix > axisLength)
-						{
-							continue;
-						}
-
-						if (baseGrid->GetCoordColour(x + ix, y + iy) == alive)
-						{
-							neighbours++;
-						}
-					}
-				}
-
-				updatedGrid->SetCoordColour(x, y, ReturnState(baseGrid->GetCoordColour(x, y), neighbours));
+				updatedGrid->SetCoordColour(x, y, cellColour);
 				//std::cout << "Neighbours: " << neighbours << ", X: " << x << ", Y: " << y << std::endl;
 			}
 		}
 
 		SwapGrids();
 		std::cout << generation << std::endl;
+	}
+
+private:
+	void SwapGrids() { *baseGrid = *updatedGrid; }
+
+	float ReturnState(float state, unsigned int neighbours)
+	{
+		if (state == dead)
+		{
+			for (int i = 1; i < birthRule.size(); i++)
+			{
+				if (neighbours == (int)birthRule[i] - 48)
+				{
+					return alive;
+				}
+			}
+		}
+		else
+		{
+			for (int i = 1; i < surviveRule.size(); i++)
+			{
+				if (neighbours == (int)surviveRule[i] - 48)
+				{
+					return alive;
+				}
+			}
+		}
+
+		return dead;
+	}
+
+	int CheckNeighbours(int x, int y)
+	{
+		int neighbours = 0;
+
+		for (int iy = -1; iy < 2; iy++)
+		{
+			for (int ix = -1; ix < 2; ix++)
+			{
+				if (ix == 0 && iy == 0)
+				{
+					continue;
+				}
+
+				if (y + iy <= 0 || y + iy > axisLength)
+				{
+					break;
+				}
+				else if (x + ix <= 0 || x + ix > axisLength)
+				{
+					continue;
+				}
+
+				if (neighbourhoodRule == Neumann)
+				{
+					if (ix == -1 && iy == -1)
+					{
+						continue;
+					}
+					else if (ix == 1 && iy == -1)
+					{
+						continue;
+					}
+					else if (ix == -1 && iy == 1)
+					{
+						continue;
+					}
+					else if (ix == 1 && iy == 1)
+					{
+						continue;
+					}
+				}
+
+				if (baseGrid->GetCoordColour(x + ix, y + iy) == alive)
+				{
+					neighbours++;
+				}
+			}
+		}
+
+		return neighbours;
 	}
 };
