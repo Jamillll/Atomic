@@ -22,5 +22,10 @@ enum PresetNames
 	GameofLife,
 	Island,
 	Gliders,
-
+	Decay,
+	AntiLife,
+	MazeRunner,
+	SquareFractal,
+	Geology,
+	Infestation
 };

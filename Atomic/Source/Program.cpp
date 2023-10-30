@@ -3,8 +3,6 @@
 #include "Rendering/Renderer.h"
 #include "Logic/SimulationHandler.h"
 #include "Logic/Presets.h"
-#include <iostream>
-#include <windows.h>
 
 int main(void)
 {
@@ -13,7 +11,7 @@ int main(void)
         return renderer.Terminate();
 
     SimulationHandler simulation;
-    Presets::SetPreset(&simulation, Island);
+    Presets::SetPreset(&simulation, Geology);
 
     renderer.SetGrid(simulation.baseGrid->cellArray, sizeof(Cell) * simulation.baseGrid->cellArrayCount);
     renderer.DrawCall();
