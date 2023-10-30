@@ -16,8 +16,6 @@ public:
 public:
 	Grid();
 
-	void RandomGrid();
-	void SetCoordColour(unsigned int x, unsigned int y, float colour);
-	void SetCoordColour(unsigned int x, unsigned int y, float r, float g, float b);
-	float GetCoordColour(unsigned int x, unsigned int y);
+	void SetCoordColour(unsigned int x, unsigned int y, Colour colour);
+	Colour GetCoordColour(unsigned int x, unsigned int y);
 };

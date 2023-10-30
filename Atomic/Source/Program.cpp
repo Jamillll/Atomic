@@ -11,7 +11,7 @@ int main(void)
         return renderer.Terminate();
 
     SimulationHandler simulation;
-    Presets::SetPreset(&simulation, Geology);
+    Presets::SetPreset(&simulation, Infestation);
 
     renderer.SetGrid(simulation.baseGrid->cellArray, sizeof(Cell) * simulation.baseGrid->cellArrayCount);
     renderer.DrawCall();

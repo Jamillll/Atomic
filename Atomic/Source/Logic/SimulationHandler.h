@@ -7,8 +7,8 @@
 class SimulationHandler
 {
 private:
-	const float alive = 1.0f;
-	const float dead = 0.0f;
+	Colour alive = { 1.0f, 1.0f, 1.0f };
+	Colour dead = { 0.0f, 0.0f, 0.0f };
 	int axisLength;
 
 	std::string birthRule = "B3";
@@ -28,7 +28,32 @@ public:
 		axisLength = baseGrid->axisLength;
 	}
 
-	void setRuleString(std::string ruleString)
+	void RandomGrid()
+	{
+		std::random_device random;
+		std::uniform_int_distribution<int> dist(0, 1);
+
+		for (int i = 0; i < baseGrid->cellArrayCount; i++)
+		{
+			Colour colour;
+
+			if (dist(random) == 0) colour = dead;
+			else colour = alive;
+
+			for (int j = 0; j < 6; j++)
+			{
+				baseGrid->cellArray[i].vertices[j].colour = colour;
+			}
+		}
+	}
+
+	void SetStateColours(Colour newAlive, Colour newDead)
+	{
+		alive = newAlive;
+		dead = newDead;
+	}
+
+	void SetRuleString(std::string ruleString)
 	{
 		birthRule = "";
 		surviveRule = "";
@@ -53,9 +78,9 @@ public:
 		}
 	}
 
-	void setRuleString(std::string ruleString, Neighbourhood newNeighbourhoodRule)
+	void SetRuleString(std::string ruleString, Neighbourhood newNeighbourhoodRule)
 	{
-		setRuleString(ruleString);
+		SetRuleString(ruleString);
 		neighbourhoodRule = newNeighbourhoodRule;
 	}
 
@@ -68,7 +93,7 @@ public:
 			for (int x = 1; x < axisLength + 1; x++)
 			{
 				int neighbours = CheckNeighbours(x, y);
-				float cellColour = ReturnState(baseGrid->GetCoordColour(x, y), neighbours);
+				Colour cellColour = ReturnState(baseGrid->GetCoordColour(x, y), neighbours);
 
 				updatedGrid->SetCoordColour(x, y, cellColour);
 				//std::cout << "Neighbours: " << neighbours << ", X: " << x << ", Y: " << y << std::endl;
@@ -82,7 +107,7 @@ public:
 private:
 	void SwapGrids() { *baseGrid = *updatedGrid; }
 
-	float ReturnState(float state, unsigned int neighbours)
+	Colour ReturnState(Colour state, unsigned int neighbours)
 	{
 		if (state == dead)
 		{

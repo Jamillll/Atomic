@@ -1,9 +1,24 @@
 #pragma once
 
+struct Colour
+{
+	float r, g, b;
+
+	bool operator==(const Colour& target) const
+	{
+		if (r == target.r && g == target.g && b == target.b)
+		{
+			return true;
+		}
+
+		else return false;
+	}
+};
+
 struct Vertex
 {
 	float x, y;
-	float r, g, b;
+	Colour colour;
 };
 
 struct Cell
