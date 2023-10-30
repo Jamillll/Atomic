@@ -11,7 +11,7 @@ private:
 public:
 	unsigned int axisLength = 900;
 	unsigned int cellArrayCount = axisLength * axisLength;
-	Cell cellArray[810000];
+	Cell cellArray[810000]; //810000
 
 public:
 	Grid();

@@ -16,3 +16,11 @@ enum Neighbourhood
 	Moore = 0,
 	Neumann = 1
 };
+
+enum PresetNames
+{
+	GameofLife,
+	Island,
+	Gliders,
+
+};

@@ -70,5 +70,8 @@
     <ClInclude Include="Source\Logic\SimulationHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Logic\Presets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

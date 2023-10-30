@@ -45,6 +45,7 @@
     <ClInclude Include="Dependancies\GLEW\include\GL\wglew.h" />
     <ClInclude Include="Source\Logic\Grid.h" />
     <ClInclude Include="Source\Logic\SimulationHandler.h" />
+    <ClInclude Include="Source\Logic\Presets.h" />
     <ClInclude Include="Source\Utilities\DataTypes.h" />
     <ClInclude Include="Source\Rendering\Renderer.h" />
     <ClInclude Include="Source\Rendering\VertexBuffer.h" />
