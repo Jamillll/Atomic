@@ -7,6 +7,8 @@ Renderer::Renderer()
     window = glfwCreateWindow(windowWidth, windowHeight, "Atomic", NULL, NULL);
     if (!window) success = false;
 
+    glfwWindowHint(GLFW_RESIZABLE, false);
+
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
 
@@ -33,15 +35,15 @@ void Renderer::SetGrid(void* data, unsigned int size)
 
 void Renderer::DrawCall()
 {
-    glClear(GL_COLOR_BUFFER_BIT);
+    glfwPollEvents();
+
+    glClear(NULL);
 
     vertexBuffer.Update();
 
     glDrawArrays(GL_TRIANGLES, 0, vertexBuffer.count);
 
     glfwSwapBuffers(window);
-
-    glfwPollEvents();
 }
 
 int Renderer::Terminate()

@@ -3,6 +3,7 @@
 #include "Rendering/Renderer.h"
 #include "Logic/SimulationHandler.h"
 #include "Logic/Presets.h"
+#include "UI/UIHandler.h"
 
 int main(void)
 {
@@ -11,7 +12,9 @@ int main(void)
         return renderer.Terminate();
 
     SimulationHandler simulation;
-    Presets::SetPreset(&simulation, Infestation);
+    Presets::SetPreset(&simulation, Island);
+
+    UIHandler ui(renderer.window, renderer.openGLVersion);
 
     renderer.SetGrid(simulation.baseGrid->cellArray, sizeof(Cell) * simulation.baseGrid->cellArrayCount);
     renderer.DrawCall();
@@ -21,5 +24,7 @@ int main(void)
         simulation.Update();
 
         renderer.DrawCall();
+
+        ui.Update(renderer.window);
     }
 }

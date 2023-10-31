@@ -2,13 +2,13 @@
 
 Grid::Grid()
 {
-    cellSize = 2.0 / (axisLength + (axisLength / 10));
-    gapSize = cellSize / 10;
+    cellHeight = 1.97 / axisLength;
+    cellWidth = 1.5 / axisLength;
 
-    float currentY = 1.0f - gapSize;
+    float currentY = 1.0f;
     for (int y = 0; y < axisLength; y++)
     {
-        float currentX = -1.0f + gapSize;
+        float currentX = -0.97f;
         for (int x = 0; x < axisLength; x++)
         {
             unsigned int index = (y * axisLength) + x;
@@ -16,19 +16,19 @@ Grid::Grid()
             cellArray[index].vertices[0].x = currentX;
             cellArray[index].vertices[0].y = currentY;
 
-            cellArray[index].vertices[1].x = currentX + cellSize;
+            cellArray[index].vertices[1].x = currentX + cellWidth;
             cellArray[index].vertices[1].y = currentY;
 
             cellArray[index].vertices[2].x = currentX;
-            cellArray[index].vertices[2].y = currentY - cellSize;
+            cellArray[index].vertices[2].y = currentY - cellHeight;
 
             cellArray[index].vertices[3].x = currentX;
-            cellArray[index].vertices[3].y = currentY - cellSize;
+            cellArray[index].vertices[3].y = currentY - cellHeight;
 
-            cellArray[index].vertices[4].x = currentX + cellSize;
-            cellArray[index].vertices[4].y = currentY - cellSize;
+            cellArray[index].vertices[4].x = currentX + cellWidth;
+            cellArray[index].vertices[4].y = currentY - cellHeight;
 
-            cellArray[index].vertices[5].x = currentX + cellSize;
+            cellArray[index].vertices[5].x = currentX + cellWidth;
             cellArray[index].vertices[5].y = currentY;
 
             for (int i = 0; i < 6; i++)
@@ -38,10 +38,10 @@ Grid::Grid()
                 cellArray[index].vertices[i].colour.b = 0.0f;
             }
 
-            currentX += cellSize + gapSize;
+            currentX += cellWidth;
         }
 
-        currentY -= cellSize + gapSize;
+        currentY -= cellHeight;
     }
 }
 

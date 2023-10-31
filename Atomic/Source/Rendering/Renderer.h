@@ -10,12 +10,13 @@ private:
     VertexBuffer vertexBuffer;
     Shader shader;
 
-    int windowHeight = 900;
-    int windowWidth = 900;
+    int windowHeight = 810;
+    int windowWidth = 1200;
 
 public:
     GLFWwindow* window;
     bool success = false;
+    const char* openGLVersion = "#version 330";
 
     Renderer();
 

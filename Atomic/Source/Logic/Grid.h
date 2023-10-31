@@ -5,13 +5,13 @@
 class Grid
 {
 private:
-	float cellSize;
-	float gapSize;
+	float cellHeight;
+	float cellWidth;
 
 public:
-	unsigned int axisLength = 900;
+	unsigned int axisLength = 400;
 	unsigned int cellArrayCount = axisLength * axisLength;
-	Cell cellArray[810000]; //810000
+	Cell cellArray[160000]; //640000
 
 public:
 	Grid();

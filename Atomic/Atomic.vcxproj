@@ -19,6 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dependancies\ImGUI\imgui.cpp" />
+    <ClCompile Include="Dependancies\ImGUI\imgui_demo.cpp" />
+    <ClCompile Include="Dependancies\ImGUI\imgui_draw.cpp" />
+    <ClCompile Include="Dependancies\ImGUI\imgui_impl_glfw.cpp" />
+    <ClCompile Include="Dependancies\ImGUI\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Dependancies\ImGUI\imgui_tables.cpp" />
+    <ClCompile Include="Dependancies\ImGUI\imgui_widgets.cpp" />
     <ClCompile Include="Source\Logic\Grid.cpp" />
     <ClCompile Include="Source\Program.cpp" />
     <ClCompile Include="Source\Rendering\Renderer.cpp" />
@@ -43,9 +50,19 @@
     <ClInclude Include="Dependancies\GLEW\include\GL\glew.h" />
     <ClInclude Include="Dependancies\GLEW\include\GL\glxew.h" />
     <ClInclude Include="Dependancies\GLEW\include\GL\wglew.h" />
+    <ClInclude Include="Dependancies\ImGUI\imconfig.h" />
+    <ClInclude Include="Dependancies\ImGUI\imgui.h" />
+    <ClInclude Include="Dependancies\ImGUI\imgui_impl_glfw.h" />
+    <ClInclude Include="Dependancies\ImGUI\imgui_impl_opengl3.h" />
+    <ClInclude Include="Dependancies\ImGUI\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="Dependancies\ImGUI\imgui_internal.h" />
+    <ClInclude Include="Dependancies\ImGUI\imstb_rectpack.h" />
+    <ClInclude Include="Dependancies\ImGUI\imstb_textedit.h" />
+    <ClInclude Include="Dependancies\ImGUI\imstb_truetype.h" />
     <ClInclude Include="Source\Logic\Grid.h" />
     <ClInclude Include="Source\Logic\SimulationHandler.h" />
     <ClInclude Include="Source\Logic\Presets.h" />
+    <ClInclude Include="Source\UI\UIHandler.h" />
     <ClInclude Include="Source\Utilities\DataTypes.h" />
     <ClInclude Include="Source\Rendering\Renderer.h" />
     <ClInclude Include="Source\Rendering\VertexBuffer.h" />
@@ -136,7 +153,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependancies\GLFW\include;$(SolutionDir)Dependancies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependancies\GLFW\include;$(SolutionDir)Dependancies\GLEW\include;$(SolutionDir)Dependancies\ImGUI</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -154,7 +171,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependancies\GLFW\include;$(SolutionDir)Dependancies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependancies\GLFW\include;$(SolutionDir)Dependancies\GLEW\include;$(SolutionDir)Dependancies\ImGUI</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
