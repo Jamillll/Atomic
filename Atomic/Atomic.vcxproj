@@ -24,6 +24,7 @@
     <ClCompile Include="Dependancies\ImGUI\imgui_draw.cpp" />
     <ClCompile Include="Dependancies\ImGUI\imgui_impl_glfw.cpp" />
     <ClCompile Include="Dependancies\ImGUI\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Dependancies\ImGUI\imgui_stdlib.cpp" />
     <ClCompile Include="Dependancies\ImGUI\imgui_tables.cpp" />
     <ClCompile Include="Dependancies\ImGUI\imgui_widgets.cpp" />
     <ClCompile Include="Source\Logic\Grid.cpp" />
@@ -56,12 +57,14 @@
     <ClInclude Include="Dependancies\ImGUI\imgui_impl_opengl3.h" />
     <ClInclude Include="Dependancies\ImGUI\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="Dependancies\ImGUI\imgui_internal.h" />
+    <ClInclude Include="Dependancies\ImGUI\imgui_stdlib.h" />
     <ClInclude Include="Dependancies\ImGUI\imstb_rectpack.h" />
     <ClInclude Include="Dependancies\ImGUI\imstb_textedit.h" />
     <ClInclude Include="Dependancies\ImGUI\imstb_truetype.h" />
     <ClInclude Include="Source\Logic\Grid.h" />
     <ClInclude Include="Source\Logic\SimulationHandler.h" />
     <ClInclude Include="Source\Logic\Presets.h" />
+    <ClInclude Include="Source\UI\Editor.h" />
     <ClInclude Include="Source\UI\UIHandler.h" />
     <ClInclude Include="Source\Utilities\DataTypes.h" />
     <ClInclude Include="Source\Rendering\Renderer.h" />

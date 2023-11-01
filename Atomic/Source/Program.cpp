@@ -12,9 +12,9 @@ int main(void)
         return renderer.Terminate();
 
     SimulationHandler simulation;
-    Presets::SetPreset(&simulation, Island);
+    Presets::SetPreset(&simulation, GameofLife);
 
-    UIHandler ui(renderer.window, renderer.openGLVersion);
+    UIHandler ui(renderer.window, renderer.openGLVersion, &simulation);
 
     renderer.SetGrid(simulation.baseGrid->cellArray, sizeof(Cell) * simulation.baseGrid->cellArrayCount);
     renderer.DrawCall();

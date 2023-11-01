@@ -2,17 +2,28 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "Editor.h"
 #include <stdio.h>
 #include <GLFW/glfw3.h>
 
 class UIHandler
 {
 private:
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    bool showDemoWindow = true;
+    Editor editor;
 
 public:
-    UIHandler(GLFWwindow* window, const char* openGLVersion)
+    void Update(GLFWwindow* window)
+    {
+        StartFrame();
+
+        //CreateWindows
+        ShowBackgroundWindow();
+        editor.ShowEditor();
+
+        Render(window);
+    }
+
+    UIHandler(GLFWwindow* window, const char* openGLVersion, SimulationHandler* simulation)
     {
         // Setup Dear ImGui context
         IMGUI_CHECKVERSION();
@@ -37,17 +48,8 @@ public:
         // Setup Platform/Renderer backends
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(openGLVersion);
-    }
 
-    void Update(GLFWwindow* window)
-    {
-        StartFrame();
-
-        //CreateWindows
-        ShowBackgroundWindow();
-        ShowEditorWindow();
-
-        Render(window);
+        editor.InitEditor(simulation);
     }
 
     ~UIHandler()
@@ -62,16 +64,6 @@ private:
     {
         ImGui::Begin("Hello, world!");
         ImGui::Text(" ");
-        ImGui::End();
-    }
-
-    void ShowEditorWindow()
-    {
-        bool istrue = false;
-
-        ImGui::Begin("Simulation Editor");
-        ImGui::Text("This is a test");
-        ImGui::Checkbox("Test", &istrue);
         ImGui::End();
     }
 
@@ -92,7 +84,7 @@ private:
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, 1200, 800);
-        glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
+        glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 

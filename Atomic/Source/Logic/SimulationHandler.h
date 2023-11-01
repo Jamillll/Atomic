@@ -28,6 +28,24 @@ public:
 		axisLength = baseGrid->axisLength;
 	}
 
+	void SetGrid(bool killClear)
+	{
+		for (int i = 0; i < baseGrid->cellArrayCount; i++)
+		{
+			for (int j = 0; j < 6; j++)
+			{
+				if (killClear)
+				{
+					baseGrid->cellArray[i].vertices[j].colour = dead;
+				}
+				else
+				{
+					baseGrid->cellArray[i].vertices[j].colour = alive;
+				}
+			}
+		}
+	}
+
 	void RandomGrid()
 	{
 		std::random_device random;

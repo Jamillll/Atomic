@@ -6,20 +6,23 @@ namespace Presets
 {
 	void GameofLifePreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B3/S23", Moore);
-		simulation->SetStateColours({1, 1, 1}, {0, 0, 0});
+		simulation->SetStateColours({1, 1, 1}, {0.06, 0.06, 0.06});
 		simulation->RandomGrid();
 	}
 
 	void AntiLifePreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B0123478/S01234678", Moore);
-		simulation->SetStateColours({ 1, 1, 1 }, { 0, 0, 0 });
+		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
 		simulation->RandomGrid();
 	}
 
 	void IslandPreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B5678/S45678", Moore);
 		simulation->SetStateColours({ 0, 1, 0 }, { 0, 0, 1 });
 		simulation->RandomGrid();
@@ -27,15 +30,18 @@ namespace Presets
 
 	void GlidersPreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B2/S", Moore);
-		simulation->SetStateColours({ 1, 1, 1 }, { 0, 0, 0 });
+		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
 
+		simulation->SetGrid(true);
 		simulation->baseGrid->SetCoordColour(400, 400, {1, 1, 1});
 		simulation->baseGrid->SetCoordColour(401, 400, {1, 1, 1});
 	}
 
 	void DecayPreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B35/S2467", Moore);
 		simulation->SetStateColours({ 1, 1, 1 }, { 0.38, 0.15, 0.42 });
 		simulation->RandomGrid();
@@ -43,20 +49,24 @@ namespace Presets
 
 	void MazeRunnerPreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B2/S0123", Moore);
-		simulation->SetStateColours({ 1, 1, 1 }, { 0, 0, 0 });
+		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
 		simulation->RandomGrid();
 	}
 
 	void SquareFractalPreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B1/S012345678", Moore);
-		simulation->SetStateColours({ 1, 1, 1 }, { 0, 0, 0 });
+		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
+		simulation->SetGrid(true);
 		simulation->baseGrid->SetCoordColour(simulation->baseGrid->axisLength / 2, simulation->baseGrid->axisLength / 2, {1, 1, 1});
 	}
 
 	void GeologyPreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B3578/S24678", Moore);
 		simulation->SetStateColours({ 0, 1, 0 }, { 0, 0, 1 });
 		simulation->RandomGrid();
@@ -64,14 +74,15 @@ namespace Presets
 
 	void InfestationPreset(SimulationHandler* simulation)
 	{
+		simulation->generation = 0;
 		simulation->SetRuleString("B37/S04567", Moore);
-		simulation->SetStateColours({ 1, 1, 1 }, { 0, 0, 0 });
+		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
 		simulation->RandomGrid();
 	}
 
-	void SetPreset(SimulationHandler* simulation, PresetNames preset)
+	void SetPreset(SimulationHandler* simulation, int presetSelected)
 	{
-		switch (preset)
+		switch (presetSelected)
 		{
 		case GameofLife:
 			GameofLifePreset(simulation);
