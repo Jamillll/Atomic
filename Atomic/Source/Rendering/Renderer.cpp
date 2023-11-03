@@ -4,10 +4,11 @@ Renderer::Renderer()
 {
     if (!glfwInit()) success = false;
 
+    //glfwWindowHint(GLFW_RESIZABLE, false);
+    //glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
+
     window = glfwCreateWindow(windowWidth, windowHeight, "Atomic", NULL, NULL);
     if (!window) success = false;
-
-    glfwWindowHint(GLFW_RESIZABLE, false);
 
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);

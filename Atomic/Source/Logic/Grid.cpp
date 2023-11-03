@@ -2,13 +2,15 @@
 
 Grid::Grid()
 {
-    cellHeight = 1.97 / axisLength;
-    cellWidth = 1.5 / axisLength;
+    cellLength = 2.0f / (axisLength);
 
-    float currentY = 1.0f;
+    float startingY = 1.05f;
+    float startingX = -0.95f;
+
+    float currentY = startingY;
     for (int y = 0; y < axisLength; y++)
     {
-        float currentX = -0.97f;
+        float currentX = startingX;
         for (int x = 0; x < axisLength; x++)
         {
             unsigned int index = (y * axisLength) + x;
@@ -16,19 +18,19 @@ Grid::Grid()
             cellArray[index].vertices[0].x = currentX;
             cellArray[index].vertices[0].y = currentY;
 
-            cellArray[index].vertices[1].x = currentX + cellWidth;
+            cellArray[index].vertices[1].x = currentX + cellLength;
             cellArray[index].vertices[1].y = currentY;
 
             cellArray[index].vertices[2].x = currentX;
-            cellArray[index].vertices[2].y = currentY - cellHeight;
+            cellArray[index].vertices[2].y = currentY - cellLength;
 
             cellArray[index].vertices[3].x = currentX;
-            cellArray[index].vertices[3].y = currentY - cellHeight;
+            cellArray[index].vertices[3].y = currentY - cellLength;
 
-            cellArray[index].vertices[4].x = currentX + cellWidth;
-            cellArray[index].vertices[4].y = currentY - cellHeight;
+            cellArray[index].vertices[4].x = currentX + cellLength;
+            cellArray[index].vertices[4].y = currentY - cellLength;
 
-            cellArray[index].vertices[5].x = currentX + cellWidth;
+            cellArray[index].vertices[5].x = currentX + cellLength;
             cellArray[index].vertices[5].y = currentY;
 
             for (int i = 0; i < 6; i++)
@@ -38,10 +40,10 @@ Grid::Grid()
                 cellArray[index].vertices[i].colour.b = 0.0f;
             }
 
-            currentX += cellWidth;
+            currentX += cellLength - (cellLength / 3);
         }
 
-        currentY -= cellHeight;
+        currentY -= cellLength;
     }
 }
 
@@ -67,4 +69,4 @@ Colour Grid::GetCoordColour(unsigned int x, unsigned int y)
         cellArray[index].vertices[0].colour.g,
         cellArray[index].vertices[0].colour.b,
     };
-}
+} 

@@ -8,7 +8,7 @@ namespace Presets
 	{
 		simulation->generation = 0;
 		simulation->SetRuleString("B3/S23", Moore);
-		simulation->SetStateColours({1, 1, 1}, {0.06, 0.06, 0.06});
+		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
 		simulation->RandomGrid();
 	}
 
@@ -32,11 +32,11 @@ namespace Presets
 	{
 		simulation->generation = 0;
 		simulation->SetRuleString("B2/S", Moore);
-		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
+		simulation->SetStateColours({ 0.06, 0.06, 0.06 }, { 1, 1, 1 });
 
 		simulation->SetGrid(true);
-		simulation->baseGrid->SetCoordColour(400, 400, {1, 1, 1});
-		simulation->baseGrid->SetCoordColour(401, 400, {1, 1, 1});
+		simulation->baseGrid->SetCoordColour(400, 400, { 1, 1, 1 });
+		simulation->baseGrid->SetCoordColour(401, 400, { 1, 1, 1 });
 	}
 
 	void DecayPreset(SimulationHandler* simulation)
@@ -61,7 +61,7 @@ namespace Presets
 		simulation->SetRuleString("B1/S012345678", Moore);
 		simulation->SetStateColours({ 1, 1, 1 }, { 0.06, 0.06, 0.06 });
 		simulation->SetGrid(true);
-		simulation->baseGrid->SetCoordColour(simulation->baseGrid->axisLength / 2, simulation->baseGrid->axisLength / 2, {1, 1, 1});
+		simulation->baseGrid->SetCoordColour(simulation->baseGrid->axisLength / 2, simulation->baseGrid->axisLength / 2, { 1, 1, 1 });
 	}
 
 	void GeologyPreset(SimulationHandler* simulation)

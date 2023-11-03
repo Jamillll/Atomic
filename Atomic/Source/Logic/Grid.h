@@ -5,8 +5,7 @@
 class Grid
 {
 private:
-	float cellHeight;
-	float cellWidth;
+	float cellLength;
 
 public:
 	unsigned int axisLength = 400;

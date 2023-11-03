@@ -35,12 +35,12 @@ enum Neighbourhood
 enum PresetNames
 {
 	GameofLife,
+	AntiLife,
+	Geology,
 	Island,
 	Gliders,
+	Infestation,
 	Decay,
-	AntiLife,
 	MazeRunner,
-	SquareFractal,
-	Geology,
-	Infestation
+	SquareFractal
 };

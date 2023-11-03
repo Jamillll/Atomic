@@ -8,7 +8,7 @@
 int main(void)
 {
     Renderer renderer;
-    if (!renderer.success) 
+    if (!renderer.success)
         return renderer.Terminate();
 
     SimulationHandler simulation;

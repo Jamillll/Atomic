@@ -15,10 +15,14 @@ private:
 	std::string surviveRule = "S23";
 	Neighbourhood neighbourhoodRule = Moore;
 
+	const int pauseTimerDefault = 20;
+	int pauseTimer = pauseTimerDefault;
+
 public:
 	Grid* baseGrid = nullptr;
 	Grid* updatedGrid = nullptr;
 	int generation = 0;
+	bool pauseSimulation = false;
 
 public:
 	SimulationHandler()
@@ -27,6 +31,27 @@ public:
 		updatedGrid = new Grid();
 		axisLength = baseGrid->axisLength;
 	}
+
+	void Update()
+	{
+		if (pauseCheck() == true) return;
+
+		generation++;
+
+		for (int y = 1; y < axisLength + 1; y++)
+		{
+			for (int x = 1; x < axisLength + 1; x++)
+			{
+				int neighbours = CheckNeighbours(x, y);
+				Colour cellColour = ReturnState(baseGrid->GetCoordColour(x, y), neighbours);
+
+				updatedGrid->SetCoordColour(x, y, cellColour);
+			}
+		}
+
+		SwapGrids();
+	}
+
 
 	void SetGrid(bool killClear)
 	{
@@ -51,24 +76,45 @@ public:
 		std::random_device random;
 		std::uniform_int_distribution<int> dist(0, 1);
 
-		for (int i = 0; i < baseGrid->cellArrayCount; i++)
+		for (int y = 1; y < axisLength + 1; y++)
 		{
-			Colour colour;
-
-			if (dist(random) == 0) colour = dead;
-			else colour = alive;
-
-			for (int j = 0; j < 6; j++)
+			for (int x = 1; x < axisLength + 1; x++)
 			{
-				baseGrid->cellArray[i].vertices[j].colour = colour;
+				Colour colour;
+
+				if (dist(random) == 0) colour = dead;
+				else colour = alive;
+
+				baseGrid->SetCoordColour(x, y, colour);
 			}
 		}
 	}
 
 	void SetStateColours(Colour newAlive, Colour newDead)
 	{
+		for (int y = 1; y < axisLength + 1; y++)
+		{
+			for (int x = 1; x < axisLength + 1; x++)
+			{
+				if (baseGrid->GetCoordColour(x, y) == alive)
+				{
+					baseGrid->SetCoordColour(x, y, newAlive);
+				}
+				else
+				{
+					baseGrid->SetCoordColour(x, y, newDead);
+				}
+			}
+		}
+
 		alive = newAlive;
 		dead = newDead;
+	}
+
+	void GetStateColours(Colour* returnAlive, Colour* returnDead)
+	{
+		*returnAlive = alive;
+		*returnDead = dead;
 	}
 
 	void SetRuleString(std::string ruleString)
@@ -89,7 +135,7 @@ public:
 			{
 				birthRule += ruleString[i];
 			}
-			else 
+			else
 			{
 				surviveRule += ruleString[i];
 			}
@@ -102,28 +148,25 @@ public:
 		neighbourhoodRule = newNeighbourhoodRule;
 	}
 
-	void Update()
-	{
-		generation++;
-
-		for (int y = 1; y < axisLength + 1; y++)
-		{
-			for (int x = 1; x < axisLength + 1; x++)
-			{
-				int neighbours = CheckNeighbours(x, y);
-				Colour cellColour = ReturnState(baseGrid->GetCoordColour(x, y), neighbours);
-
-				updatedGrid->SetCoordColour(x, y, cellColour);
-				//std::cout << "Neighbours: " << neighbours << ", X: " << x << ", Y: " << y << std::endl;
-			}
-		}
-
-		SwapGrids();
-		std::cout << generation << std::endl;
-	}
-
 private:
 	void SwapGrids() { *baseGrid = *updatedGrid; }
+
+	bool pauseCheck()
+	{
+		if (pauseSimulation)
+		{
+			if (pauseTimer == 0)
+			{
+				pauseSimulation = false;
+				pauseTimer = pauseTimerDefault;
+			}
+
+			else pauseTimer--;
+
+			return true;
+		}
+		else return false;
+	}
 
 	Colour ReturnState(Colour state, unsigned int neighbours)
 	{
