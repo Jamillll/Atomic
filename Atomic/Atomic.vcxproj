@@ -28,6 +28,7 @@
     <ClCompile Include="Dependancies\ImGUI\imgui_tables.cpp" />
     <ClCompile Include="Dependancies\ImGUI\imgui_widgets.cpp" />
     <ClCompile Include="Source\Logic\Grid.cpp" />
+    <ClCompile Include="Source\Logic\SimulationHandler.cpp" />
     <ClCompile Include="Source\Program.cpp" />
     <ClCompile Include="Source\Rendering\Renderer.cpp" />
     <ClCompile Include="Source\Rendering\Shader.h" />
