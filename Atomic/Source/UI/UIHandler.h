@@ -16,8 +16,6 @@ public:
     {
         StartFrame();
 
-        ImGui::ShowDemoWindow();
-
         //CreateWindows
         ShowBackgroundWindow();
         editor.ShowEditor();

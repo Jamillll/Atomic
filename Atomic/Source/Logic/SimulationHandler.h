@@ -69,6 +69,8 @@ public:
 				}
 			}
 		}
+
+		generation = 0;
 	}
 
 	void RandomGrid()
@@ -88,6 +90,8 @@ public:
 				baseGrid->SetCoordColour(x, y, colour);
 			}
 		}
+
+		generation = 0;
 	}
 
 	void SetStateColours(Colour newAlive, Colour newDead)
@@ -115,6 +119,11 @@ public:
 	{
 		*returnAlive = alive;
 		*returnDead = dead;
+	}
+
+	std::string GetRuleString()
+	{
+		return birthRule + "/" + surviveRule;
 	}
 
 	void SetRuleString(std::string ruleString)

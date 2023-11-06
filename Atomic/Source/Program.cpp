@@ -7,17 +7,17 @@
 
 int main(void)
 {
+    SimulationHandler simulation;
+    Presets::SetPreset(&simulation, GameofLife);
+
     Renderer renderer;
     if (!renderer.success)
         return renderer.Terminate();
 
-    SimulationHandler simulation;
-    Presets::SetPreset(&simulation, GameofLife);
-
-    UIHandler ui(renderer.window, renderer.openGLVersion, &simulation);
-
     renderer.SetGrid(simulation.baseGrid->cellArray, sizeof(Cell) * simulation.baseGrid->cellArrayCount);
     renderer.DrawCall();
+
+    UIHandler ui(renderer.window, renderer.openGLVersion, &simulation);
 
     while (!glfwWindowShouldClose(renderer.window))
     {

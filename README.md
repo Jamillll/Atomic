@@ -10,12 +10,13 @@ Current features implimented: <br>
   -rulestrings implimented <br>
   -Presets system implimented along with a Variety of Presets <br>
   -Impliment the UI with IMGUI <br>
+  -Allow the user to type custom rulestrings <br>
+  -Allow the user to select state colour <br>
+  -Basic UI completed <br>
 
 ToDo: <br>
   -Optimise the renderer to take in an index buffer to optimise how much space the verticies use <br>
   -Impliment user interaction with the grid <br>
-  -Allow the user to type custom rulestrings <br>
-  -Allow the user to select state colour <br>
   -Impliment Preset creation and saving <br>
   -Impliment support for any amount of states <br>
   -Impliment custom seed input <br>
