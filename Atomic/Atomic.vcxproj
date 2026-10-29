@@ -27,11 +27,11 @@
     <ClCompile Include="Dependancies\ImGUI\imgui_stdlib.cpp" />
     <ClCompile Include="Dependancies\ImGUI\imgui_tables.cpp" />
     <ClCompile Include="Dependancies\ImGUI\imgui_widgets.cpp" />
-    <ClCompile Include="Source\Logic\Grid.cpp" />
-    <ClCompile Include="Source\Logic\SimulationHandler.cpp" />
-    <ClCompile Include="Source\Program.cpp" />
-    <ClCompile Include="Source\Rendering\Renderer.cpp" />
-    <ClCompile Include="Source\Rendering\Shader.h" />
+    <ClCompile Include="Source\Application.cpp" />
+    <ClCompile Include="Source\Entrypoint.cpp" />
+    <ClCompile Include="Source\Renderer\GridObject.cpp" />
+    <ClCompile Include="Source\Renderer\Renderer.cpp" />
+    <ClCompile Include="Source\Renderer\VAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependancies\GLEW\doc\advanced.html" />
@@ -44,8 +44,6 @@
     <None Include="Dependancies\GLEW\doc\install.html" />
     <None Include="Dependancies\GLEW\doc\log.html" />
     <None Include="Dependancies\GLEW\doc\wglew.html" />
-    <None Include="Source\Rendering\Shaders\Fragment.shader" />
-    <None Include="Source\Rendering\Shaders\Vertex.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependancies\GLEW\include\GL\eglew.h" />
@@ -62,14 +60,11 @@
     <ClInclude Include="Dependancies\ImGUI\imstb_rectpack.h" />
     <ClInclude Include="Dependancies\ImGUI\imstb_textedit.h" />
     <ClInclude Include="Dependancies\ImGUI\imstb_truetype.h" />
-    <ClInclude Include="Source\Logic\Grid.h" />
-    <ClInclude Include="Source\Logic\SimulationHandler.h" />
-    <ClInclude Include="Source\Logic\Presets.h" />
-    <ClInclude Include="Source\UI\Editor.h" />
-    <ClInclude Include="Source\UI\UIHandler.h" />
-    <ClInclude Include="Source\Utilities\DataTypes.h" />
-    <ClInclude Include="Source\Rendering\Renderer.h" />
-    <ClInclude Include="Source\Rendering\VertexBuffer.h" />
+    <ClInclude Include="Source\Application.h" />
+    <ClInclude Include="Source\Renderer\GridObject.h" />
+    <ClInclude Include="Source\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Renderer\ShaderProgram.h" />
+    <ClInclude Include="Source\Renderer\VAO.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

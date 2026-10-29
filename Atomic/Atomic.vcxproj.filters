@@ -15,16 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Program.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Rendering\Shader.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Logic\Grid.cpp">
+    <ClCompile Include="Source\Entrypoint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dependancies\ImGUI\imgui.cpp">
@@ -51,7 +42,16 @@
     <ClCompile Include="Dependancies\ImGUI\imgui_stdlib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Logic\SimulationHandler.cpp">
+    <ClCompile Include="Source\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\GridObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\VAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -66,8 +66,6 @@
     <None Include="Dependancies\GLEW\doc\install.html" />
     <None Include="Dependancies\GLEW\doc\log.html" />
     <None Include="Dependancies\GLEW\doc\wglew.html" />
-    <None Include="Source\Rendering\Shaders\Vertex.shader" />
-    <None Include="Source\Rendering\Shaders\Fragment.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependancies\GLEW\include\GL\eglew.h">
@@ -80,27 +78,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dependancies\GLEW\include\GL\wglew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\VertexBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utilities\DataTypes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Logic\Grid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Logic\SimulationHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Logic\Presets.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\UI\UIHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dependancies\ImGUI\imconfig.h">
@@ -130,10 +107,22 @@
     <ClInclude Include="Dependancies\ImGUI\imstb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\UI\Editor.h">
+    <ClInclude Include="Dependancies\ImGUI\imgui_stdlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dependancies\ImGUI\imgui_stdlib.h">
+    <ClInclude Include="Source\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\GridObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\VAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\ShaderProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

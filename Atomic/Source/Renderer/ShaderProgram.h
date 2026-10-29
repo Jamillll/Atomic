@@ -1,6 +1,5 @@
 #pragma once
 #include "GL/glew.h"
-#include "GLFW/glfw3.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -11,22 +10,22 @@ struct ShaderSource
     std::string fragmentShader;
 };
 
-class Shader
+class ShaderProgram
 {
 private:
     unsigned int id;
 
 public:
-    Shader() { }
+    ShaderProgram() {}
 
-    Shader(std::string vertexShaderPath, std::string fragmentShaderPath)
+    ShaderProgram(std::string vertexShaderPath, std::string fragmentShaderPath)
     {
         ShaderSource shaders = ParseShader(vertexShaderPath, fragmentShaderPath);
         id = CreateShader(shaders.vertexShader, shaders.fragmentShader);
         glUseProgram(id);
     }
 
-    ~Shader() { glDeleteProgram(id); }
+    ~ShaderProgram() { glDeleteProgram(id); }
 
     void InitShader(std::string vertexShaderPath, std::string fragmentShaderPath)
     {
