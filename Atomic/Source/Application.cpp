@@ -6,7 +6,6 @@
 Application::Application()
 {
     // Window Set up
-    assert(glewInit());
     assert(glfwInit());
 
     m_window = glfwCreateWindow(640, 480, "Atomic", NULL, NULL);
@@ -17,6 +16,13 @@ Application::Application()
 
     glfwMakeContextCurrent(m_window);
     glfwSwapInterval(1);
+
+    GLenum err = glewInit();
+    if (GLEW_OK != err)
+    {
+        /* Problem: glewInit failed, something is seriously wrong. */
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+    }
 
     glClearColor(0.24f, 0.24f, 0.24f, 1.0f);
 
